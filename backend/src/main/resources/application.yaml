@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/dev
+
+server:
+  port: 8080
+
+eng-card:
+  data:
+    init-dao:
+      enabled: true

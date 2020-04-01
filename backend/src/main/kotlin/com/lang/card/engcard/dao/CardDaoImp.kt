@@ -3,9 +3,8 @@ package com.lang.card.engcard.dao
 import com.lang.card.engcard.dto.CardDto
 import com.lang.card.engcard.dto.CardMongoRepository
 import org.bson.types.ObjectId
-import org.springframework.data.domain.Sort
 
-class CardDaoImp(val repository: CardMongoRepository) : ICardDao {
+class CardDaoImp(private val repository: CardMongoRepository) : ICardDao {
 
     override fun addCard(card: CardDto): CardDto {
         val id = ObjectId()
