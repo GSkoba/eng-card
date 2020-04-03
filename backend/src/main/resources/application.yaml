@@ -10,3 +10,7 @@ eng-card:
   data:
     init-dao:
       enabled: true
+
+springfox:
+  documentation:
+    auto-startup: true
