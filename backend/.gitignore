@@ -5,6 +5,9 @@ build/
 !**/src/main/**
 !**/src/test/**
 
+**/node_modules/**
+**/build/**
+
 ### STS ###
 .apt_generated
 .classpath
