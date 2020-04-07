@@ -14,6 +14,11 @@ class InitDataDao(val cardService: CardService) : CommandLineRunner {
     override fun run(vararg args: String?) {
         val initData = mapOf("dog" to "собака", "car" to "машина", "house" to "дом",
         "environment" to "окружающая среда")
-        initData.forEach { (key, value) -> cardService.addCard(CardDto(key, value))}
+        initData.forEach { (key, value) ->
+            val card = CardDto()
+            card.textOrg = key
+            card.textTransl = value
+            cardService.addCard(card)
+        }
     }
 }

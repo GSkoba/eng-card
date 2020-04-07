@@ -1,7 +1,5 @@
-spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/dev
+mongodb:
+  uri: localhost:27017
 
 server:
   port: 8080
@@ -9,7 +7,7 @@ server:
 eng-card:
   data:
     init-dao:
-      enabled: true
+      enabled: false
 
 springfox:
   documentation:

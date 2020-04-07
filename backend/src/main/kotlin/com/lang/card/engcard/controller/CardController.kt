@@ -5,7 +5,7 @@ import com.lang.card.engcard.service.CardService
 import org.springframework.web.bind.annotation.*
 
 @RestController
-class CardController(val cardService: CardService) {
+class CardController(private val cardService: CardService) {
 
     @PostMapping("/addCard")
     @ResponseBody

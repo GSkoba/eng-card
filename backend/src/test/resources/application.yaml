@@ -1,3 +1,2 @@
 mongodb:
-  host: localhost
-  port: 12345
+  uri: localhost:27017

@@ -1,17 +1,24 @@
 package com.lang.card.engcard.dto
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.Document
+import org.bson.types.ObjectId
 import java.time.Instant
 
-@Document("eng-card")
-data class CardDto(val textOrg: String, val textTransl: String) {
-    @Id
+class CardDto {
+
+    constructor() {}
+
+    constructor(textOrg: String, textTransl: String) {
+        this.textOrg = textOrg
+        this.textTransl = textTransl
+    }
+
     var id: String? = null
+    var textOrg: String = ""
+    var textTransl: String = ""
     var tags: List<String> = emptyList()
-    val description: String? = null
+    var description: String? = null
     var errorAttempsCount: Long = 0
     var successfulAttempsCount: Long = 0
-    val createDate: Instant? = null
+    var createDate: Instant? = null
     var lastAttempDate: Instant? = null
 }
