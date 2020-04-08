@@ -21,4 +21,8 @@ class CardController(private val cardService: CardService) {
 
     @PostMapping("/updateCard")
     fun updateCard(@RequestBody card: CardDto) = cardService.updateCard(card)
+
+    @GetMapping("/all")
+    @ResponseBody
+    fun all() = cardService.getAllCards()
 }

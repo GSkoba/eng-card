@@ -7,7 +7,7 @@ server:
 eng-card:
   data:
     init-dao:
-      enabled: false
+      enabled: true
 
 springfox:
   documentation:

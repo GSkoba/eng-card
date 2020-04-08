@@ -22,8 +22,6 @@ class SwaggerConfig {
                 .groupName("all")
                 .apiInfo(apiInfo())
                 .select()
-                // following line will expose only internal/service APIs
-                // if Actuator endpoints have to be exposed as well - comment it out
                 .apis(RequestHandlerSelectors.basePackage(basePackage))
                 .paths(PathSelectors.any())
                 .build()

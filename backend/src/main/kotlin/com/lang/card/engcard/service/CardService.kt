@@ -18,4 +18,6 @@ class CardService(val cardDao: ICardDao) {
     fun getAllCards() = cardDao.getAllCards()
 
     fun getCardByTag(tag: String) = cardDao.getCardByTag(tag)
+
+    fun exist(card: CardDto) = cardDao.exist(card)
 }

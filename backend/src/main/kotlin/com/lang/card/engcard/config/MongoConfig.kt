@@ -3,6 +3,7 @@ package com.lang.card.engcard.config
 import com.lang.card.engcard.dto.CardDto
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientSettings
+import com.mongodb.client.MongoCollection
 import com.mongodb.client.MongoDatabase
 import org.bson.codecs.configuration.CodecRegistries.fromProviders
 import org.bson.codecs.configuration.CodecRegistries.fromRegistries
@@ -26,6 +27,6 @@ class MongoConfig {
             fromProviders(PojoCodecProvider.builder().automatic(true).build()))
 
     @Bean
-    fun cardsColl(mongoDB: MongoDatabase, codecRegistry: CodecRegistry) =
+    fun cardsColl(mongoDB: MongoDatabase, codecRegistry: CodecRegistry) : MongoCollection<CardDto> =
             mongoDB.getCollection("cards", CardDto::class.java).withCodecRegistry(codecRegistry)
 }

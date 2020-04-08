@@ -1,18 +1,18 @@
 package com.lang.card.engcard.functional
 
-import com.lang.card.engcard.config.MongoConfig
+import com.lang.card.engcard.config.MongoContainerConfig
 import com.lang.card.engcard.dto.CardDto
 import com.lang.card.engcard.service.CardService
 import com.mongodb.client.MongoCollection
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertNotNull
-import org.junit.Before
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import java.util.function.Consumer
 
-@SpringBootTest(classes = arrayOf(MongoConfig::class))
+@SpringBootTest(classes = arrayOf(MongoContainerConfig::class))
 class Positive {
 
     @Autowired
@@ -21,7 +21,7 @@ class Positive {
     @Autowired
     lateinit var collection: MongoCollection<CardDto>
 
-    @Before
+    @BeforeEach
     fun drop() {
         collection.drop()
     }

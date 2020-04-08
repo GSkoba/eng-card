@@ -1,6 +1,5 @@
 package com.lang.card.engcard.dto
 
-import org.bson.types.ObjectId
 import java.time.Instant
 
 class CardDto {
