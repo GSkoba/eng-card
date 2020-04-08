@@ -31,7 +31,8 @@ jobs:
         heroku_app_name: "eng-card"
         heroku_email: "gskobelevff@gmail.com"
         buildpack: "heroku/gradle"  
-        appdir: backend   
+        appdir: backend
+        dontuseforce: true  
   build-android:
     name: "Build android" 
     runs-on: ubuntu-latest
