@@ -25,7 +25,6 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       working-directory: backend
-    - name: Deploy to heroku
     - uses: akhileshns/heroku-deploy@master # This is the action
       with:
         working-directory: backend
