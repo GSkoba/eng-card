@@ -25,6 +25,13 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       working-directory: backend
+    - name: Deploy to heroku
+    - uses: akhileshns/heroku-deploy@master # This is the action
+      with:
+        working-directory: backend
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "eng-card"
+        heroku_email: "gskobelevff@gmail.com"  
   build-android:
     name: "Build android" 
     runs-on: ubuntu-latest
