@@ -30,6 +30,7 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "eng-card"
         heroku_email: "gskobelevff@gmail.com"
+        buildpack: "heroku/gradle"  
         appdir: backend   
   build-android:
     name: "Build android" 
