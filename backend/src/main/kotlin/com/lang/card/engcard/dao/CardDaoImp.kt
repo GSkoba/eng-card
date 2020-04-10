@@ -28,16 +28,19 @@ class CardDaoImp(private val collection: MongoCollection<CardDto>) : ICardDao {
         TODO("update card")
     }
 
-    override fun getRandomCards(): List<CardDto> = collection.find().shuffled()
+    override fun getRandomCards(): List<CardDto> = collection.find().limit(10).shuffled()
 
     override fun getAllCards(): List<CardDto> = collection.find().toList()
 
     override fun getCardByTag(tag: String): List<CardDto> {
-        return emptyList()
+        TODO("card by tag")
     }
 
     override fun exist(card: CardDto) =
             collection.find(and(eq("textOrg", card.textOrg), eq("textTransl", card.textTransl)))
                     .toList().isNotEmpty()
 
+    override fun getCard(cardId: String): CardDto {
+        return collection.find(eq("_id", cardId)).first()
+    }
 }

@@ -20,4 +20,14 @@ class CardDto {
     var successfulAttempsCount: Long = 0
     var createDate: Instant? = null
     var lastAttempDate: Instant? = null
+
+    override fun toString(): String {
+        return "CardDto(id=$id, textOrg='$textOrg', " +
+                "textTransl='$textTransl', tags=$tags," +
+                " description=$description, errorAttempsCount=$errorAttempsCount," +
+                " successfulAttempsCount=$successfulAttempsCount, createDate=$createDate," +
+                " lastAttempDate=$lastAttempDate)"
+    }
+
+
 }

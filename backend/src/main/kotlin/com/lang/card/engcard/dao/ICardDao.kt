@@ -17,4 +17,6 @@ interface ICardDao {
     fun getCardByTag(tag: String): List<CardDto>
 
     fun exist(card: CardDto): Boolean
+
+    fun getCard(cardId: String): CardDto
 }
