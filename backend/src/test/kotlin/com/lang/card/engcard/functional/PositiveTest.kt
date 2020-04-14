@@ -13,7 +13,8 @@ import org.junit.jupiter.api.Assertions.assertNotNull
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest(classes = arrayOf(MongoContainerConfig::class, AssertUtilsConfig::class))
+@SpringBootTest(classes = arrayOf(MongoContainerConfig::class, AssertUtilsConfig::class),
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PositiveTest {
 
     @Autowired
