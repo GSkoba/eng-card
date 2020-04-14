@@ -1,2 +1,12 @@
 # Eng card
-App for lear language 
+## Запуск
+Сборка и запуск backend
+```
+$ gradle build
+$ gradle run
+```
+Сборка и запуск frontend
+```
+$ yarn install
+$ yarn start
+```

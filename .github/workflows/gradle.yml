@@ -21,10 +21,8 @@ jobs:
         java-version: 1.8
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-      working-directory: backend
     - name: Build with Gradle
       run: ./gradlew build
-      working-directory: backend
   build-android:
     name: "Build android" 
     runs-on: ubuntu-latest

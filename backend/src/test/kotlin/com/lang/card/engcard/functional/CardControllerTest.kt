@@ -6,7 +6,6 @@ import com.lang.card.engcard.dto.CardDto
 import com.lang.card.engcard.utils.AssertUtils
 import com.mongodb.client.MongoCollection
 import org.bson.types.ObjectId
-import org.junit.Ignore
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
