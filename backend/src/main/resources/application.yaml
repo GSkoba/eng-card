@@ -1,5 +1,5 @@
 mongodb:
-  uri: localhost:27017
+  uri: eng-card-mongo
 
 server:
   port: 8080
