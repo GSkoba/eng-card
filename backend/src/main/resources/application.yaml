@@ -1,5 +1,5 @@
 mongodb:
-  uri: eng-card-mongo
+  uri: ${MONGO_HOST}
 
 server:
   port: 8080

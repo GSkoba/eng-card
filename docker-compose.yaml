@@ -2,6 +2,8 @@ version: "3.7"
 services:
   backend:
     build: backend
+    environment:
+      - MONGO_HOST=db
     networks:
       - spring-mongo
       - spring-nginx
