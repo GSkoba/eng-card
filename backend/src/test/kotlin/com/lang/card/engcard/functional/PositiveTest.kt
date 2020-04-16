@@ -1,8 +1,10 @@
 package com.lang.card.engcard.functional
 
+import com.lang.card.engcard.config.AssertUtilsConfig
 import com.lang.card.engcard.config.MongoContainerConfig
 import com.lang.card.engcard.dto.CardDto
 import com.lang.card.engcard.service.CardService
+import com.lang.card.engcard.utils.AssertUtils
 import com.mongodb.client.MongoCollection
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -10,16 +12,19 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import java.util.function.Consumer
 
-@SpringBootTest(classes = arrayOf(MongoContainerConfig::class))
-class Positive {
+@SpringBootTest(classes = arrayOf(MongoContainerConfig::class, AssertUtilsConfig::class),
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class PositiveTest {
 
     @Autowired
     lateinit var service: CardService
 
     @Autowired
     lateinit var collection: MongoCollection<CardDto>
+
+    @Autowired
+    lateinit var assertUtils: AssertUtils
 
     @BeforeEach
     fun drop() {
@@ -50,16 +55,6 @@ class Positive {
         assertEquals(listOfCard.size, receivedList.size) {
             "receivedList.size must be equals cardList before send to mongo"
         }
-        assertWithoutId(listOfCard, receivedList)
-    }
-
-    private fun assertWithoutId(expected: List<CardDto>, actual: List<CardDto>) {
-        val expIterator = expected.sortedBy { it.textOrg }.iterator()
-        actual.sortedBy { it.textOrg }.forEach(Consumer {
-            assertNotNull(it.id)
-            val expCardDto = expIterator.next()
-            assertEquals(it.textOrg, expCardDto.textOrg) { "receivedCard.textOrg must not be a change" }
-            assertEquals(it.textTransl, expCardDto.textTransl) { "receivedCard.textTransl must not be a change" }
-        })
+        assertUtils.assertWithoutId(listOfCard, receivedList)
     }
 }

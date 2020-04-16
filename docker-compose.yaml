@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  backend:
+    build: backend
+    environment:
+      - MONGO_HOST=db
+    networks:
+      - spring-mongo
+      - spring-nginx
+    expose:
+      - 8080
+    depends_on:
+      - db
+  db:
+    container_name: eng-card-mongo
+    image: mongo
+    restart: always
+    ports:
+    - 27017:27017
+    networks:
+      - spring-mongo
+  proxy:
+    build: nginx
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - spring-nginx
+    depends_on:
+      - backend
+networks:
+  spring-mongo: {}
+  spring-nginx: {}
