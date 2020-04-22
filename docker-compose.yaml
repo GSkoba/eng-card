@@ -4,6 +4,8 @@ services:
     build: backend
     environment:
       - MONGO_HOST=db
+      - ADMIN_PASSWORD=admin
+      - ADMIN_LOGIN=admin
     networks:
       - spring-mongo
       - spring-nginx
@@ -16,7 +18,7 @@ services:
     image: mongo
     restart: always
     ports:
-    - 27017:27017
+    - 27018:27017
     networks:
       - spring-mongo
   proxy:
