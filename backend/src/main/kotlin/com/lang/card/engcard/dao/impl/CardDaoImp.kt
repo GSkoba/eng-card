@@ -1,5 +1,6 @@
-package com.lang.card.engcard.dao
+package com.lang.card.engcard.dao.impl
 
+import com.lang.card.engcard.dao.ICardDao
 import com.lang.card.engcard.dto.CardDto
 import com.mongodb.client.MongoCollection
 import com.mongodb.client.model.Filters.and
