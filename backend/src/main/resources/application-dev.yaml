@@ -1,11 +1,11 @@
 mongodb:
-  uri: ${MONGO_HOST}
+  uri: localhost:27017
 
 spring:
   security:
     user:
-      password: ${ADMIN_PASSWORD}
-      name: ${ADMIN_LOGIN}
+      password: admin
+      name: admin
       roles: ADMIN
 
 server:
