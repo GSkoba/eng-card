@@ -29,6 +29,10 @@ jobs:
         heroku_app_name: "eng-card"
         heroku_email: "gskobelevff@gmail.com"
         appdir: "backend"
+    - uses: actions/checkout@master
+    - uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} 
   build-android:
     name: "Build android" 
     runs-on: ubuntu-latest
