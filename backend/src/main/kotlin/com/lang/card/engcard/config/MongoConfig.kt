@@ -1,6 +1,7 @@
 package com.lang.card.engcard.config
 
 import com.lang.card.engcard.dto.CardDto
+import com.lang.card.engcard.dto.UserDto
 import com.mongodb.MongoClient
 import com.mongodb.MongoClientSettings
 import com.mongodb.client.MongoCollection
@@ -29,4 +30,8 @@ class MongoConfig {
     @Bean
     fun cardsColl(mongoDB: MongoDatabase, codecRegistry: CodecRegistry) : MongoCollection<CardDto> =
             mongoDB.getCollection("cards", CardDto::class.java).withCodecRegistry(codecRegistry)
+
+    @Bean
+    fun userColl(mongoDB: MongoDatabase, codecRegistry: CodecRegistry) : MongoCollection<UserDto> =
+            mongoDB.getCollection("user", UserDto::class.java).withCodecRegistry(codecRegistry)
 }
