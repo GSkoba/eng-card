@@ -23,12 +23,6 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - uses: akhileshns/heroku-deploy@master # This is the action
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "eng-card"
-        heroku_email: "gskobelevff@gmail.com"
-        appdir: "backend"
     - uses: actions/checkout@master
     - uses: codecov/codecov-action@v1
       with:
